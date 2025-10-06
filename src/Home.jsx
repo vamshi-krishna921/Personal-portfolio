@@ -4,7 +4,7 @@ import { Download } from "lucide-react";
 
 function Home() {
   return (
-    <section className="w-full min-h-screen flex flex-col lg:flex-row overflow-hidden pt-20">
+    <section className="w-full min-h-screen flex flex-col lg:flex-row overflow-hidden pt-5 md:pt-20">
       {/* Left */}
       <div className="lg:w-[40%] w-full flex flex-col justify-start pt-30 items-center lg:items-start px-6 lg:px-16 py-12">
         <div className="flex flex-col justify-around h-[60%]">
@@ -62,7 +62,6 @@ function Home() {
     </section>
   );
 }
-
 const SocialIcons = ({ vertical }) => (
   <div
     className={`flex ${vertical ? "flex-col" : "flex-row"} items-center gap-6`}
