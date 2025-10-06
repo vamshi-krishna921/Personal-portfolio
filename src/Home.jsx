@@ -31,8 +31,6 @@ function Home() {
             </button>
           </div>
         </div>
-
-        {/* Social icons */}
         <div className="flex lg:hidden justify-center gap-5 mt-8">
           <SocialIcons />
         </div>

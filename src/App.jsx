@@ -5,7 +5,6 @@ import Header from "./Header";
 import Home from "./Home";
 import Skills from "./Skills";
 import Projects from "./Projects";
-import Experience from "./Experience";
 import Contact from "./Contact";
 import Loader from "./Loader";
 gsap.registerPlugin(ScrollToPlugin);
@@ -42,7 +41,6 @@ function App() {
       <div ref={skillsRef}>
         <Skills />
       </div>
-      <Experience />
       <div ref={projectsRef}>
         <Projects />
       </div>

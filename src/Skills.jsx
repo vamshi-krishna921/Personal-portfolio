@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from "react";
+import React, { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -30,21 +30,36 @@ function Skills() {
     const ctx = gsap.context(() => {
       const section = sectionRef.current;
       const skillsContainer = skillsRef.current;
-      const totalWidth = skillsContainer.scrollWidth;
-      const viewportWidth = section.offsetWidth;
-      const xMove = totalWidth - viewportWidth;
-      gsap.to(skillsContainer, {
-        x: -xMove,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => `+=${xMove}`,
-          scrub: 2,
-          pin: true,
-          invalidateOnRefresh: true,
-        },
-      });
+
+      const updateAnimation = () => {
+        ScrollTrigger.getAll().forEach((st) => st.kill());
+
+        const totalWidth = skillsContainer.scrollWidth;
+        const viewportWidth = section.offsetWidth;
+        const xMove = Math.max(0, totalWidth - viewportWidth);
+
+        if (xMove > 0) {
+          gsap.to(skillsContainer, {
+            x: -xMove,
+            ease: "none",
+            scrollTrigger: {
+              trigger: section,
+              start: "top top",
+              end: () => `+=${xMove}`,
+              scrub: 2,
+              pin: true,
+              invalidateOnRefresh: true,
+            },
+          });
+        }
+      };
+      updateAnimation();
+      window.addEventListener("resize", updateAnimation);
+
+      return () => {
+        window.removeEventListener("resize", updateAnimation);
+        ScrollTrigger.getAll().forEach((st) => st.kill());
+      };
     }, sectionRef);
 
     return () => ctx.revert();
@@ -68,10 +83,18 @@ function Skills() {
             <div
               key={index}
               className={`md:size-100 size-50 flex flex-col items-center justify-center 
-    ${skill.name === "Clerk" ? "bg-white" : "bg-emerald-400/10"} 
-    backdrop-blur-xl border border-emerald-300/30 shadow-lg shrink-0 rounded-2xl 
-    hover:${skill.name === "Clerk" ? "bg-gray-900" : "bg-emerald-400/20"} 
-    hover:scale-105 hover:shadow-emerald-500/40 transition-all duration-300`}
+                      ${
+                        skill.name === "Clerk" || skill.name === "CSS"
+                          ? "bg-white"
+                          : "bg-emerald-400/10"
+                      } 
+                      backdrop-blur-xl border border-emerald-300/30 shadow-lg shrink-0 rounded-2xl 
+                      hover:${
+                        skill.name === "Clerk"
+                          ? "bg-gray-900"
+                          : "bg-emerald-400/20"
+                      } 
+                      hover:scale-105 hover:shadow-emerald-500/40 transition-all duration-300`}
             >
               <img
                 src={skill.img}
@@ -80,7 +103,7 @@ function Skills() {
               />
               <p
                 className={`text-md font-semibold ${
-                  skill.name === "Clerk"
+                  skill.name === "Clerk" || skill.name === "CSS"
                     ? "text-emerald-500"
                     : "text-emerald-200"
                 }`}
