@@ -19,7 +19,7 @@ function Contact() {
     e.preventDefault();
     setStatus("Sending...");
 
-    const SERVICE_ID = "service_dsa1n5i";
+    const SERVICE_ID = "service_f8pyy6j";
     const TEMPLATE_ID = "template_9wasutw";
     const PUBLIC_KEY = "pi2MysGFvXWqBo0WU";
 
@@ -50,7 +50,6 @@ function Contact() {
       </h1>
 
       <div className="flex flex-col md:flex-row w-full max-w-6xl gap-10">
-        {/* Contact Info */}
         <div className="md:w-1/2 flex flex-col gap-6 bg-emerald-400/10 backdrop-blur-xl border border-emerald-300/30 shadow-lg rounded-3xl p-8">
           <h2 className="text-2xl font-semibold text-emerald-300 mb-2">
             Get in Touch
@@ -69,7 +68,6 @@ function Contact() {
           </div>
         </div>
 
-        {/* Contact Form */}
         <div className="md:w-1/2 bg-emerald-400/10 backdrop-blur-xl border border-emerald-300/30 shadow-lg rounded-3xl p-8">
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
             <input
