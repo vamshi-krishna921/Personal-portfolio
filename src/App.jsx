@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div>
-      {/* <Loader /> */}
+      <Loader />
       <Header navItems={navItems} scrollToSection={scrollToSection} />
       <div
         ref={homeRef}
