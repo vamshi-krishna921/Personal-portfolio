@@ -16,6 +16,7 @@ function Skills() {
     { name: "Tailwind", img: "/Tailwind.png" },
     { name: "GSAP", img: "/GSAP.png" },
     { name: "React", img: "/React.png" },
+    { name : "Tanstack Query", img : "/Tanstack.png"},
     { name: "Git", img: "/Git.png" },
     { name: "GitHub", img: "/Github.png" },
     { name: "Clerk", img: "/Clerk.png" },

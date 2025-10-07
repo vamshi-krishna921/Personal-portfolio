@@ -25,10 +25,12 @@ function Home() {
           </div>
 
           <div>
-            <button className="group flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-500 text-white font-medium rounded-lg mt-3 hover:bg-emerald-600 transition-all duration-300 shadow-md hover:shadow-lg w-fit cursor-pointer">
-              <FaDownload className="text-lg group-hover:translate-y-0.5 transition-transform duration-300" />
-              Resume
-            </button>
+            <a href="/Resume.pdf" download="Vamshi_Krishna_Resume.pdf">
+              <button className="group flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-500 text-white font-medium rounded-lg mt-3 hover:bg-emerald-600 transition-all duration-300 shadow-md hover:shadow-lg w-fit cursor-pointer">
+                <FaDownload className="text-lg group-hover:translate-y-0.5 transition-transform duration-300" />
+                Resume
+              </button>
+            </a>
           </div>
         </div>
         <div className="flex lg:hidden justify-center gap-5 mt-8">
